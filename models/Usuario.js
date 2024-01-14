@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../config/local_database.js";
+import { sequelize } from "../config/cloud_database.js";
 // import Rol from "./Rol.js";
 import bcrypt from "bcrypt";
 
