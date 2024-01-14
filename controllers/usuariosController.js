@@ -1,6 +1,6 @@
 // En tu archivo usuarioController.js
 
-import Usuario from "../models/usuario.js";
+import Usuario from "../models/Usuario.js";
 import bcrypt from "bcrypt";
 import { obtenerRolPorNombre } from "./rolesController.js";
 
