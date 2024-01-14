@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
 config();
 
+export const FRONTEND_URL = process.env.FRONTEND_URL
 export const db = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
