@@ -11,6 +11,6 @@ export const db = {
 //   puerto:process.env.PORT
 };
 
-export const PORT = process.env.PORT || 5000;
+export const PORT = process.env.PORT || 4000;
 export const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin";
