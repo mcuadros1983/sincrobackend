@@ -1,7 +1,6 @@
 // promocion_promocion_articulo.js
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
-import promocion from './Promocion.js';
 
 const promocionpromocionarticulo = sequelize.define('promocion_promocion_articulo', {
   promocion_id: {

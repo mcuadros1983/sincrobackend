@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../config/cloud_database.js";
+import { sequelize } from "../config/database.js";
 
 const sucursal = sequelize.define(
   "sucursal",
