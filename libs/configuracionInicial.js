@@ -1,34 +1,6 @@
-// Importa tus modelos y configuración de sequelize según sea necesario
-// import Rol from "../models/Rol.js";
+
 import Usuario from "../models/Usuario.js";
-import { sequelize } from "../config/local_database.js";
 import { ADMIN_USERNAME, ADMIN_PASSWORD } from "../config/config.js";
-
-// export const crearRoles = async () => {
-//   try {
-//     // Sincronizar los modelos con la base de datos
-//     await sequelize.sync();
-
-//     // Contar registros
-//     const count = await Rol.count();
-
-//     // Verificar roles existentes
-//     if (count > 0) return;
-
-//     // Crear roles predeterminados
-//     const values = await Promise.all([
-//       Rol.create({ nombre: "usuario" }),
-//       Rol.create({ nombre: "moderador" }),
-//       Rol.create({ nombre: "admin" }),
-//     ]);
-
-//     console.log(values);
-
-//     crearAdmin();
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 
 export const crearAdmin = async () => { 
   try {
@@ -42,10 +14,6 @@ export const crearAdmin = async () => {
       return; // Puedes ajustar según tus preferencias
     }
 
-    // Obtener el rol de administrador
-    //const rol = await Rol.findOne({ where: { nombre: "admin" } });
-   // console.log("text8", rol);
-
     // Crear un nuevo usuario admin
     const newUser = await Usuario.create({
       usuario: ADMIN_USERNAME,
@@ -54,11 +22,9 @@ export const crearAdmin = async () => {
      // rol_id: rol.dataValues.id, // Asignar el ID del rol admin directamente al campo role_id
     });
 
-    // Asociar los roles al usuario admin
-    // await newUser.setRoles(rol);
-
     console.log(`new user created: ${newUser.usuario}`);
   } catch (error) {
+    console.log("error al crear el usuario")
     console.error(error);
   }
 };

@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../config/database.js";
+import { sequelize } from "../config/cloud_database.js";
 
 const sucursal = sequelize.define(
   "sucursal",
@@ -11,10 +11,7 @@ const sucursal = sequelize.define(
     },
     nombre: {
       type: DataTypes.STRING(255),
-    },
-    //   diassemanas: {
-    //     type: DataTypes.BLOB,
-    //   },
+    }
   },
   {
     // Opciones adicionales si es necesario
@@ -22,8 +19,5 @@ const sucursal = sequelize.define(
     timestamps: false, // Evita la creación automática de las columnas 'createdAt' y 'updatedAt'
   }
 );
-
-// // Establece la asociación entre Promocion y PromocionPromocionArticulo después de la definición de Promocion
-// promocion.belongsToMany(PromocionPromocionArticulo, { through: 'promocion_promocion_articulo', foreignKey: 'promocion_id' });
 
 export default sucursal;

@@ -1,5 +1,5 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -12,11 +12,22 @@ const {
   DB_CLOUDDIALECT,
 } = process.env;
 
-const sequelize = new Sequelize(DB_CLOUDDATABASE, DB_CLOUDUSER, DB_CLOUDPASSWORD, {
-  host: DB_CLOUDHOST,
-  port: DB_CLOUDPORT,
-  dialect: DB_CLOUDDIALECT,
-  // Puedes agregar más configuraciones aquí según sea necesario
-});
+const sequelize = new Sequelize(
+  DB_CLOUDDATABASE,
+  DB_CLOUDUSER,
+  DB_CLOUDPASSWORD,
+  {
+    host: DB_CLOUDHOST,
+    port: DB_CLOUDPORT,
+    dialect: DB_CLOUDDIALECT,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false, // Puedes ajustar esto según sea necesario
+      },
+    },
+    // Puedes agregar más configuraciones aquí según sea necesario
+  }
+);
 
 export { sequelize };
