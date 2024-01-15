@@ -6,6 +6,7 @@ const localPromocionesRouter = Router();
 
 // Rutas para copiar promociones
 localPromocionesRouter.post("/copiarpromociones", localPromocionController.copiarPromociones);
+localPromocionesRouter.post("/sync-database", localPromocionController.syncDatabase);
 
 // export default router;
 export default localPromocionesRouter;

@@ -135,8 +135,21 @@ const eliminarPromocionesPorSucursal = async (sucursalId) => {
   }
 };
 
+const syncDatabase = async (req, res) => {
+  try {
+    // Lógica para sincronizar la base de datos usando Sequelize
+    await sequelize.sync({ force: false }); // Aquí usé "force: true" para recrear las tablas (ten cuidado con esto en producción)
+    console.log("base de dato local conectada correctamente")
+    res.status(200).json({ message: 'Sincronización exitosa' });
+  } catch (error) {
+    console.error('Error al sincronizar la base de datos:', error);
+    res.status(500).json({ error: 'Error al sincronizar la base de datos' });
+  }
+};
+
 export default {
   copiarPromociones,
   eliminarPromocionesPorSucursal,
+  syncDatabase
   // Otros controladores si es necesario
 };
