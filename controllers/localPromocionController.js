@@ -3,6 +3,7 @@ import { sequelize } from "../config/local_database.js"; // Asegúrate de propor
 import localpromocion from "../models/Local_Promocion.js";
 import localpromocionpromocionarticulo from "../models/Local_Promocion_Promocion_articulo.js";
 import localpromocionarticulo from "../models/Local_Promocion_articulo.js";
+import dotenv from "dotenv";
 
 const copiarPromociones = async (req, res) => {
   try {
@@ -136,20 +137,24 @@ const eliminarPromocionesPorSucursal = async (sucursalId) => {
 };
 
 const syncDatabase = async (req, res) => {
+  console.log("datoshost", process.env.DB_LOCALHOST);
   try {
+    // Verificar la conexión
+    await sequelize.authenticate();
+    console.log("Conexión exitosa a la base de datos local");
     // Lógica para sincronizar la base de datos usando Sequelize
     await sequelize.sync({ force: false }); // Aquí usé "force: true" para recrear las tablas (ten cuidado con esto en producción)
-    console.log("base de dato local conectada correctamente")
-    res.status(200).json({ message: 'Sincronización exitosa' });
+    console.log("base de dato local conectada correctamente");
+    res.status(200).json({ message: "Sincronización exitosa" });
   } catch (error) {
-    console.error('Error al sincronizar la base de datos:', error);
-    res.status(500).json({ error: 'Error al sincronizar la base de datos' });
+    console.error("Error al sincronizar la base de datos:", error);
+    res.status(500).json({ error: "Error al sincronizar la base de datos" });
   }
 };
 
 export default {
   copiarPromociones,
   eliminarPromocionesPorSucursal,
-  syncDatabase
+  syncDatabase,
   // Otros controladores si es necesario
 };

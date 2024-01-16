@@ -16,6 +16,7 @@ const sequelize = new Sequelize(DB_LOCALDATABASE, DB_LOCALUSER, DB_LOCALPASSWORD
   host: DB_LOCALHOST,
   port: DB_LOCALPORT,
   dialect: DB_LOCALDIALECT,
+  logging:true,
   // Puedes agregar más configuraciones aquí según sea necesario
 });
 

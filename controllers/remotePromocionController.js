@@ -31,7 +31,6 @@ const obtenerPromociones = async (req, res, next) => {
                 id: promocionArticulo.promocionesarticulos_id,
               },
             });
-            console.log("artback", articulo)
 
             // Retornar un objeto con el id del artículo y su valor
             return {
